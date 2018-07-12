@@ -1,0 +1,85 @@
+/**
+ * https://stackoverflow.com/questions/4871656/using-gradle-to-build-a-jar-with-dependencies
+ * https://discuss.gradle.org/t/how-to-include-dependencies-in-jar/19571/5
+ * https://www.mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/
+ */
+
+plugins {
+    id 'java'
+}
+apply plugin: 'application'
+mainClassName = 'ru.grbi3yh.processthesefiles.Main'
+group 'ru.grbi3yh.processthesefiles'
+version '1.0-SNAPSHOT'
+defaultTasks 'jar'
+sourceCompatibility = 1.8
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
+
+compileJava.options.encoding = 'UTF-8'//'windows-1251'//
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+}
+
+
+distZip.shouldRunAfter(build)
+
+
+jar {
+//    doFirst{
+//        manifest {
+//            attributes("Manifest-Version": "1.0",
+//                    "Created-By": vendor,
+//                    "Specification-Title": appName,
+//                    "Specification-Version": version,
+//                    "Specification-Vendor": vendor,
+//                    "Implementation-Title": appName,
+//                    "Implementation-Version" : version,
+//                    "Implementation-Vendor": vendor,
+//                    "Main-Class": "ru.grbi3yh.processthesefiles.Main",
+//                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+//            )
+//        }
+//    }
+
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+    baseName = 'ProcessthFiles'
+    manifest {
+        attributes 'Main-Class': 'ru.grbi3yh.processthesefiles.Main',
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' ')
+    }
+    /*
+     * Возможное верное решение
+    * from {
+            configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    * */
+
+}
+configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+//task wrapper(type: Wrapper) {
+//    gradleVersion = "1.12"
+//}
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1.8'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'ru.grbi3yh.processthesefiles.Main',
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' ')
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
