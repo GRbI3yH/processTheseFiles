@@ -93,8 +93,15 @@ public class Main {
             robot.getBrowserControl().findElement(By.xpath("//div[.='НАПИСАТЬ']")).click();
             robot.delay(delayOpenWindow);
             robot.enterTheStringWithBuffer(prop.getProperty("addressee"));
+            robot.delay(delayOpenWindow);
             robot.keyClick(KeyEvent.VK_ENTER);
-            robot.keyClick(KeyEvent.VK_TAB);
+            //robot.keyClick(KeyEvent.VK_TAB);
+            try {
+                robot.getBrowserControl().findElement(By.name("subjectbox")).click();
+            } catch (Exception e) {
+                robot.keyClick(KeyEvent.VK_ESCAPE);
+                robot.getBrowserControl().findElement(By.name("subjectbox")).click();
+            }
             robot.enterTheStringWithBuffer(data[1]);
             //robot.enterTheStringWithBuffer("grbi3yh@gmail.com");
             robot.keyClick(KeyEvent.VK_TAB);
