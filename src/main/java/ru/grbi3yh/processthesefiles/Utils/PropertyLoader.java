@@ -52,8 +52,22 @@ public class PropertyLoader {
             property.setProperty("delay.openWindow", "1000");
             property.setProperty("delay.pauseClick", "200");
             property.setProperty("delay.extra", "100");
-            property.setProperty("driver.chrome", "chromedriver.exe");
-            property.store(file, "This is properties!!!");
+            property.setProperty("driver.chrome", "GoogleChromePortable\\chromedriver.exe");
+            property.setProperty("browsers.chrome", "GoogleChromePortable\\GoogleChromePortable.exe");
+            property.store(file,
+                    "Примерные настройки \n" +
+                            "numberOfFiles=5\n" +
+                            "login.mail=grbi3yhtest@Gmail.com\n" +
+                            "addressee=grbi3yh@Gmail.com\n" +
+                            "driver.chrome=D\\:\\\\programms\\\\ProTheseFil\\\\Chrome\\\\chromedriver.exe\n" +
+                            "filePath.processed=D\\:\\\\disk G\\\\java Program\\\\321\n" +
+                            "delay.openWindow=1000\n" +
+                            "login.password=10test2051\n" +
+                            "filePath.queue=D\\:\\\\disk G\\\\java Program\\\\3211\n" +
+                            "delay.extra=100\n" +
+                            "delay.pauseClick=200\n" +
+                            "browsers.chrome=D\\:\\\\programms\\\\ProTheseFil\\\\Chrome\\\\App\\\\Chrome-bin\\\\chrome.exe\n" +
+                            "-----------------------------------------------------------------------------------------------");
             file.close();
         } catch (IOException e) {
             e.printStackTrace();

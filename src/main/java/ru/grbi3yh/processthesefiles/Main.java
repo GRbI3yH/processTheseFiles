@@ -2,6 +2,7 @@ package ru.grbi3yh.processthesefiles;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import ru.grbi3yh.processthesefiles.Robots.CustomRobot;
 import ru.grbi3yh.processthesefiles.Utils.LanguageIdentifier;
 import ru.grbi3yh.processthesefiles.Utils.PropertyLoader;
@@ -71,7 +72,10 @@ public class Main {
     }
 
     public static void workWithBrowser() {
-        robot.getBrowserControl().openBrowser(new ChromeDriver());
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary(prop.getProperty("browsers.chrome"));//"C:\\Selenium\\Browsers\\GoogleChromePortable\\GoogleChromePortable.exe"
+        ChromeDriver driver = new ChromeDriver(options);
+        robot.getBrowserControl().openBrowser(driver);
         robot.getBrowserControl().openURL("http://www.google.com");
         robot.getBrowserControl().findElement(By.id("gb_70")).click();
         robot.getBrowserControl().findElement(By.id("identifierId")).sendKeys(prop.getProperty("login.mail"));
