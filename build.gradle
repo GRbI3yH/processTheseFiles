@@ -14,8 +14,8 @@ version '1.0-SNAPSHOT'
 defaultTasks 'jar'
 sourceCompatibility = 1.8
 
-sourceCompatibility = JavaVersion.VERSION_1_10
-targetCompatibility = JavaVersion.VERSION_1_10
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 compileJava.options.encoding = 'UTF-8'//'windows-1251'//
 
@@ -69,7 +69,7 @@ configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
 //    gradleVersion = "1.12"
 //}
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.1.8'
+    gradleVersion = '3.5'
 }
 
 task fatJar(type: Jar) {

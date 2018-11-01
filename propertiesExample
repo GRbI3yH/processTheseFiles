@@ -1,0 +1,25 @@
+
+#numberOfFiles=5
+#login.mail=____@Gmail.com
+#addressee=___@Gmail.com
+#driver.chrome=D\:\\programms\\ProTheseFil\\Chrome\\chromedriver.exe
+#filePath.processed=D\:\\disk G\\java Program\\321
+#delay.openWindow=1000
+#login.password=____
+#filePath.queue=D\:\\disk G\\java Program\\3211
+#delay.extra=100
+#delay.pauseClick=200
+#browsers.chrome=D\:\\programms\\ProTheseFil\\Chrome\\App\\Chrome-bin\\chrome.exe
+#-----------------------------------------------------------------------------------------------
+#Sun Jul 15 21:01:40 KRAT 2018
+numberOfFiles=5
+login.mail=___@Gmail.com
+addressee=____@Gmail.com
+driver.chrome=Chrome\\chromedriver.exe
+filePath.processed=D:\\programms\\ProTheseFil\\processed
+delay.openWindow=1000
+login.password=_____
+filePath.queue=D:\\programms\\ProTheseFil\\queue
+delay.extra=100
+delay.pauseClick=200
+browsers.chrome=Chrome\\App\\Chrome-bin\\chrome.exe

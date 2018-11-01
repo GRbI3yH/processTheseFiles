@@ -57,12 +57,12 @@ public class PropertyLoader {
             property.store(file,
                     "Примерные настройки \n" +
                             "numberOfFiles=5\n" +
-                            "login.mail=grbi3yhtest@Gmail.com\n" +
-                            "addressee=grbi3yh@Gmail.com\n" +
+                            "login.mail=___@Gmail.com\n" +
+                            "addressee=____@Gmail.com\n" +
                             "driver.chrome=D\\:\\\\programms\\\\ProTheseFil\\\\Chrome\\\\chromedriver.exe\n" +
                             "filePath.processed=D\\:\\\\disk G\\\\java Program\\\\321\n" +
                             "delay.openWindow=1000\n" +
-                            "login.password=10test2051\n" +
+                            "login.password=__\n" +
                             "filePath.queue=D\\:\\\\disk G\\\\java Program\\\\3211\n" +
                             "delay.extra=100\n" +
                             "delay.pauseClick=200\n" +
